@@ -97,7 +97,7 @@ minetest.register_node("pizza:margherita", {
 	inventory_image = "Margherite.png",
 	wield_image = "Margherite.png",
 	sunlight_propagates = true,
-	walkable = false,
+	walkable = true,
 	climbable = false,
 	is_ground_content = false,
 	selection_box = {
@@ -130,7 +130,7 @@ minetest.register_node("pizza:pepperonipizza", {
 	inventory_image = "Pepperoni.png",
 	wield_image = "Pepperoni.png",
 	sunlight_propagates = true,
-	walkable = false,
+	walkable = true,
 	climbable = false,
 	is_ground_content = false,
 	selection_box = {
@@ -163,7 +163,7 @@ minetest.register_node("pizza:hawaiian", {
 	inventory_image = "Hawaiian.png",
 	wield_image = "Hawaiian.png",
 	sunlight_propagates = true,
-	walkable = false,
+	walkable = true,
 	climbable = false,
 	is_ground_content = false,
 	selection_box = {
