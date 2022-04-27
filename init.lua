@@ -93,23 +93,32 @@ minetest.register_craft({
 
 minetest.register_node("pizza:margherita", {
     description = S("Margharita Pizza"),
-	tiles = {"Margherite.png"},
-	inventory_image = "Margherite.png",
-	wield_image = "Margherite.png",
-	sunlight_propagates = true,
-	walkable = false,
-	climbable = false,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-	},
+	tiles = {"Margherite.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
 	paramtype = "light",
-	is_ground_content = false,
-	use_texture_alpha = "blend",
-	drawtype = "signlike",
-	paramtype2 = "wallmounted",
+	buildable = false,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0.3125},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0.3125, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
+	visual_scale = 0.9,
 })
 
 minetest.register_craft({
@@ -126,23 +135,32 @@ minetest.register_craft({
 
 minetest.register_node("pizza:pepperonipizza", {
     description = S("Pepperoni Pizza"),
-	tiles = {"Pepperoni.png"},
-	inventory_image = "Pepperoni.png",
-	wield_image = "Pepperoni.png",
-	sunlight_propagates = true,
-	walkable = false,
-	climbable = false,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-	},
+	tiles = {"Pepperoni.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
 	paramtype = "light",
-	is_ground_content = false,
-	use_texture_alpha = "blend",
-	drawtype = "signlike",
-	paramtype2 = "wallmounted",
+	buildable = false,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0.3125},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0.3125, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
+	visual_scale = 0.9,
 })
 
 minetest.register_craft({
@@ -159,23 +177,32 @@ minetest.register_craft({
 
 minetest.register_node("pizza:hawaiian", {
     description = S("Pineapple Pizza"),
-	tiles = {"Hawaiian.png"},
-	inventory_image = "Hawaiian.png",
-	wield_image = "Hawaiian.png",
-	sunlight_propagates = true,
-	walkable = false,
-	climbable = false,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-	},
+	tiles = {"Hawaiian.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
 	paramtype = "light",
-	is_ground_content = false,
-	use_texture_alpha = "blend",
-	drawtype = "signlike",
-	paramtype2 = "wallmounted",
+	buildable = false,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0.3125},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0.3125, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
+	visual_scale = 0.9,
 })
 
 minetest.register_craft({
@@ -192,23 +219,32 @@ minetest.register_craft({
 
 minetest.register_node("pizza:cheese_pizza", {
     description = S("Cheese Pizza"),
-	tiles = {"CheesePizza.png"},
-	inventory_image = "CheesePizza.png",
-	wield_image = "CheesePizza.png",
-	sunlight_propagates = true,
-	walkable = false,
-	climbable = false,
-	is_ground_content = false,
-	selection_box = {
-		type = "wallmounted",
-	},
+	tiles = {"CheesePizza.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
 	paramtype = "light",
-	is_ground_content = false,
-	use_texture_alpha = "blend",
-	drawtype = "signlike",
-	paramtype2 = "wallmounted",
+	buildable = false,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0.3125},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0.3125, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
+	visual_scale = 0.9,
 })
 
 minetest.register_craft({
