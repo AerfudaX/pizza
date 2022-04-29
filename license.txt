@@ -37,3 +37,4 @@ Mozarella.png
 Marinara.png
 Pepperonimeat.png
 pizzabottom.png
+pizzasides.png

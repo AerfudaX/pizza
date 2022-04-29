@@ -98,6 +98,7 @@ minetest.register_node("pizza:margherita", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	buildable = false,
+	paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -119,6 +120,19 @@ minetest.register_node("pizza:margherita", {
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
 	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:margherita_6"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
 })
 
 minetest.register_craft({
@@ -140,6 +154,7 @@ minetest.register_node("pizza:pepperonipizza", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	buildable = false,
+	paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -161,6 +176,19 @@ minetest.register_node("pizza:pepperonipizza", {
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
 	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:pepperonipizza_6"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
 })
 
 minetest.register_craft({
@@ -182,6 +210,7 @@ minetest.register_node("pizza:hawaiian", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	buildable = false,
+	paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -203,6 +232,19 @@ minetest.register_node("pizza:hawaiian", {
 	groups = {snappy = 3, food_pizza = 1},
     on_use = minetest.item_eat(8),
 	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:hawaiian_6"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
 })
 
 minetest.register_craft({
@@ -224,6 +266,7 @@ minetest.register_node("pizza:cheese_pizza", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	buildable = false,
+	paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -243,8 +286,20 @@ minetest.register_node("pizza:cheese_pizza", {
 		},
 	},
 	groups = {snappy = 3, food_pizza = 1},
-    on_use = minetest.item_eat(8),
 	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:cheese_pizza_6"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
 })
 
 minetest.register_craft({
@@ -397,4 +452,520 @@ minetest.register_craft({
 		"pizza:cheesepizza_slice",
 		"pizza:cheesepizza_slice",
 	},
+})
+
+-- Ate pizza
+
+minetest.register_node("pizza:cheese_pizza_6", {
+    description = S("Cheese Pizza"),
+	tiles = {"CheesePizza.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			{0.3125, -0.56, -0, 0, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(6),
+	visual_scale = 0.9,
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:cheese_pizza_4"
+			minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+	end
+})
+
+minetest.register_node("pizza:cheese_pizza_4", {
+    description = S("Cheese Pizza"),
+	tiles = {"CheesePizza.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(4),
+	visual_scale = 0.9,
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:cheese_pizza_2"
+			minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+	end
+})
+
+minetest.register_node("pizza:cheese_pizza_2", {
+    description = S("Cheese Pizza"),
+	tiles = {"CheesePizza.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			
+			{0, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(2),
+	visual_scale = 0.9,
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "air"
+			minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+	end
+})
+
+minetest.register_node("pizza:hawaiian_6", {
+    description = S("Pineapple Pizza"),
+	tiles = {"Hawaiian.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			{0.3125, -0.56, -0, 0, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(6),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:hawaiian_4"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:hawaiian_4", {
+    description = S("Pineapple 4"),
+	tiles = {"Hawaiian.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(4),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:hawaiian_2"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:hawaiian_2", {
+    description = S("Pineapple Pizza"),
+	tiles = {"Hawaiian.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			
+			{0, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(2),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "air"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:pepperonipizza_6", {
+    description = S("Pepperoni Pizza"),
+	tiles = {"Pepperoni.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			{0.3125, -0.56, -0, 0, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(6),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:pepperonipizza_4"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:pepperonipizza_4", {
+    description = S("Pepperoni Pizza"),
+	tiles = {"Pepperoni.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(4),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:pepperonipizza_2"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:pepperonipizza_2", {
+    description = S("Pepperoni Pizza"),
+	tiles = {"Pepperoni.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			
+			{0, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(2),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "air"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:margherita_6", {
+    description = S("Margharita Pizza"),
+	tiles = {"Margherite.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			{0.3125, -0.56, -0, 0, -0.375, 0.3125},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0.3125, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+			{-0, -0.56, 0.5, 0.3125, -0.25, 0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(6),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:margherita_4"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:margherita_4", {
+    description = S("Margharita Pizza"),
+	tiles = {"Margherite.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0.3125, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			{0.3125, -0.56, 0, 0.5, -0.25, -0.3125},
+			
+			{0.3125, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(4),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "pizza:margherita_2"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
+})
+
+minetest.register_node("pizza:margherita_2", {
+    description = S("Margharita Pizza"),
+	tiles = {"Margherite.png", "pizzabottom.png", "pizzabottom.png"},
+	walkable = true,
+	drawtype = "nodebox",
+	paramtype = "light",
+	buildable = false,
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.3125, -0.56, -0.3125, 0, -0.375, 0},
+			
+			{-0.3125, -0.56, -0.3125, -0.5, -0.25, 0},
+			
+			{0, -0.56, -0.5, -0.3125, -0.25, -0.3125},
+		},
+	},
+	selection_box = {
+	    type = "fixed",
+		fixed = {
+			{-0.45, -0.5, -0.45, 0.45, -0.225, 0.45},
+		},
+	},
+	groups = {snappy = 3, food_pizza = 1, not_in_creative_inventory = 1},
+    on_use = minetest.item_eat(2),
+	visual_scale = 0.9,
+	
+	on_punch = function(pos, node, puncher, pointed_thing)
+	    node.name = "air"
+		minetest.swap_node(pos,node)
+		if minetest.get_modpath("stamina") ~= nil then
+
+		    stamina.change(puncher, 2)
+
+		    minetest.sound_play("stamina_eat", {
+			    pos = pos, gain = 0.7, max_hear_distance = 5})
+		end
+
+	end
 })
